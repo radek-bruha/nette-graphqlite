@@ -1,0 +1,11 @@
+{
+    "http": 200,
+    "body": {
+        "errors": [
+            {
+                "code": 0,
+                "message": "This name is not allowed!"
+            }
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+application:
+    scanDirs: FALSE
+    mapping:
+        GraphQLite: Tests\app\Presenter\*Presenter
+
+extensions:
+    graphQLite: Bruha\NetteGraphQLite\DependencyInjection\GraphQLiteExtension
+
+graphQLite:
+    namespaces:
+        - Tests
+
+services:
+    router: Tests\app\Router\RouterFactory::createRouter
+    - Tests\app\Resolver\GraphQLiteResolver

@@ -1,0 +1,11 @@
+{
+    "http": 200,
+    "body": {
+        "errors": [
+            {
+                "code": 400,
+                "message": "Field \"mutation\" argument \"name\" of type \"String!\" is required but not provided."
+            }
+        ]
+    }
+}

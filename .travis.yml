@@ -1,0 +1,24 @@
+language: php
+
+php:
+    - 7.2
+    - 7.3
+
+before_script:
+    - pecl install pcov
+    - phpenv config-rm xdebug.ini
+    - composer global require hirak/prestissimo -o --no-ansi --no-suggest
+    - composer update -o --no-ansi --no-suggest
+    - composer update -o --no-ansi --no-suggest
+
+script:
+    - vendor/bin/phpcs src tests -p --extensions=php --standard=ruleset.xml
+    - vendor/bin/phpstan analyse src tests -c ruleset.neon -l 7
+    - vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml
+    - export INFECTION=INFECTION && vendor/bin/infection -j8 --coverage=var/coverage --only-covered --no-ansi && export INFECTION
+
+after_success:
+    - vendor/bin/php-coveralls
+
+notifications:
+    email: false

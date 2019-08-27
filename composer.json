@@ -1,0 +1,38 @@
+{
+    "name": "radek-bruha/nette-graphqlite",
+    "description": "Nette Framework GraphQLite Integration Extension",
+    "license": "unlicense",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Bruha\\NetteGraphQLite\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "nette/caching": "^3.0",
+        "nette/di": "^3.0",
+        "psr/cache": "^1.0",
+        "psr/container": "^1.0",
+        "thecodingmachine/graphqlite": "^3.0"
+    },
+    "require-dev": {
+        "nette/application": "^3.0",
+        "php-coveralls/php-coveralls": "^2.1",
+        "radek-bruha/coding-standard": "^1.0",
+        "tracy/tracy": "^2.6"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "enable-patching": true
+    }
+}
