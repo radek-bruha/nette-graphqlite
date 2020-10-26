@@ -1,8 +1,7 @@
 language: php
 
 php:
-    - 7.2
-    - 7.3
+    - 7.4
 
 before_script:
     - pecl install pcov
@@ -13,9 +12,8 @@ before_script:
 
 script:
     - vendor/bin/phpcs src tests -p --extensions=php --standard=ruleset.xml
-    - vendor/bin/phpstan analyse src tests -c ruleset.neon -l 7
+    - vendor/bin/phpstan analyse src tests -c ruleset.neon -l 8 --error-format=custom
     - vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml
-    - export INFECTION=INFECTION && vendor/bin/infection -j8 --coverage=var/coverage --only-covered --no-ansi && export INFECTION
 
 after_success:
     - vendor/bin/php-coveralls

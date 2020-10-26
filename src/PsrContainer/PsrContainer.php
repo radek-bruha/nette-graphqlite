@@ -18,7 +18,7 @@ final class PsrContainer implements ContainerInterface
     /**
      * @var Container
      */
-    private $container;
+    private Container $container;
 
     /**
      * PsrContainer constructor

@@ -14,18 +14,7 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
 {
 
     /**
-     *
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        Debugger::$productionMode = TRUE;
-    }
-
-    /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::query
+     * @coversNothing
      */
     public function testQuery(): void
     {
@@ -34,8 +23,7 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
     }
 
     /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::mutation
+     * @coversNothing
      */
     public function testMutation(): void
     {
@@ -44,8 +32,7 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
     }
 
     /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::query
+     * @coversNothing
      */
     public function testQueryError(): void
     {
@@ -54,8 +41,7 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
     }
 
     /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::mutation
+     * @coversNothing
      */
     public function testMutationError(): void
     {
@@ -64,8 +50,7 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
     }
 
     /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::query
+     * @coversNothing
      */
     public function testQueryException(): void
     {
@@ -74,13 +59,22 @@ final class GraphQLitePresenterTest extends AbstractResolverTestCase
     }
 
     /**
-     * @covers GraphQLitePresenter::actionProcess
-     * @covers GraphQLiteResolver::mutation
+     * @coversNothing
      */
     public function testMutationException(): void
     {
         $data = $this->sendRequest($this->getRequestData());
         $this->assertResponse($this->getResponseData($data), $data);
+    }
+
+    /**
+     *
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Debugger::$productionMode = TRUE;
     }
 
 }

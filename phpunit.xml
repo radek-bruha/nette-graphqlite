@@ -4,17 +4,16 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
+    <coverage>
+        <report>
+            <html outputDirectory='var/coverage/coverage-html'/>
+            <xml outputDirectory='var/coverage/coverage-xml'/>
+        </report>
+        <include>
             <directory>src/DependencyInjection</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
     <logging>
-        <log type="coverage-html" target="var/coverage/coverage-html" lowUpperBound="50" highLowerBound="75"/>
-        <log type="coverage-xml" target="var/coverage/coverage-xml" lowUpperBound="50" highLowerBound="75"/>
-        <log type="junit" target="var/coverage/phpunit.junit.xml"/>
+        <junit outputFile='var/coverage/junit.xml'/>
     </logging>
-    <extensions>
-        <extension class="Bruha\CodingStandard\CustomHooks\PhpUnitHook"/>
-    </extensions>
 </phpunit>

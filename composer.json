@@ -14,18 +14,19 @@
         }
     },
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "nette/caching": "^3.0",
         "nette/di": "^3.0",
         "psr/cache": "^1.0",
         "psr/container": "^1.0",
-        "thecodingmachine/graphqlite": "^3.0"
+        "thecodingmachine/graphqlite": "^4.0"
     },
     "require-dev": {
         "nette/application": "^3.0",
-        "php-coveralls/php-coveralls": "^2.1",
+        "nette/bootstrap": "^3.0",
+        "php-coveralls/php-coveralls": "^2.4",
         "radek-bruha/coding-standard": "^1.0",
-        "tracy/tracy": "^2.6"
+        "tracy/tracy": "^2.7"
     },
     "config": {
         "optimize-autoloader": true,

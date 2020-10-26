@@ -36,7 +36,7 @@ final class GraphQLiteExtension extends CompilerExtension
      */
     public function beforeCompile(): void
     {
-        /** @var array $config */
+        /** @var mixed[] $config */
         $config  = $this->getConfig();
         $builder = $this->getContainerBuilder();
 

@@ -14,8 +14,8 @@ final class GraphQLiteExtensionTest extends AbstractContainerTestCase
 {
 
     /**
-     * @covers GraphQLiteExtension::getConfigSchema
-     * @covers GraphQLiteExtension::beforeCompile
+     * @covers \Bruha\NetteGraphQLite\DependencyInjection\GraphQLiteExtension::getConfigSchema
+     * @covers \Bruha\NetteGraphQLite\DependencyInjection\GraphQLiteExtension::beforeCompile
      */
     public function testExtension(): void
     {

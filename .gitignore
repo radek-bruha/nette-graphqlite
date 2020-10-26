@@ -2,7 +2,3 @@
 var
 vendor
 composer.lock
-docker-compose.yml
-nginx.config
-start.ps1
-test.ps1

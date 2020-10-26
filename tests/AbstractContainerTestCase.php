@@ -17,7 +17,7 @@ abstract class AbstractContainerTestCase extends TestCase
     /**
      * @var Container
      */
-    protected $container;
+    protected Container $container;
 
     /**
      *

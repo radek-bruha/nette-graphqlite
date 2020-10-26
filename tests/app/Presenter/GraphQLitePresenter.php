@@ -22,7 +22,7 @@ final class GraphQLitePresenter extends Presenter
     /**
      * @var Schema
      */
-    private $schema;
+    private Schema $schema;
 
     /**
      * GraphQLitePresenter constructor
@@ -41,7 +41,10 @@ final class GraphQLitePresenter extends Presenter
      */
     public function actionProcess(): void
     {
-        $body = Json::decode($this->getHttpRequest()->getRawBody() ?: '{}', Json::FORCE_ARRAY);
+        $body = Json::decode(
+            is_string($this->getHttpRequest()->getRawBody()) ? $this->getHttpRequest()->getRawBody() : '{}',
+            Json::FORCE_ARRAY
+        );
 
         $this->sendJson(
             GraphQL::executeQuery(
@@ -55,7 +58,10 @@ final class GraphQLitePresenter extends Presenter
                     if (Debugger::$productionMode) {
                         /** @var Error $error */
                         foreach ($errors as $error) {
-                            Debugger::log($error->getPrevious() ?: $error, 'GraphQLite');
+                            Debugger::log(
+                                is_object($error->getPrevious()) ? $error->getPrevious() : $error,
+                                'GraphQLite'
+                            );
                         }
                     }
 

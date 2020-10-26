@@ -26,7 +26,7 @@ final class Bootstrap
             ->addConfig(__DIR__ . '/Config/config.neon');
 
         if (!is_dir(self::DIRECTORY)) {
-            mkdir(self::DIRECTORY, 0777, TRUE);
+            mkdir(self::DIRECTORY, 0_777, TRUE);
         }
 
         $configurator->enableTracy(self::DIRECTORY);

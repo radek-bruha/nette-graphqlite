@@ -66,9 +66,9 @@ trait PrivateTrait
     }
 
     /**
-     * @param object $object
-     * @param string $name
-     * @param array  $parameters
+     * @param object  $object
+     * @param string  $name
+     * @param mixed[] $parameters
      *
      * @return mixed
      *

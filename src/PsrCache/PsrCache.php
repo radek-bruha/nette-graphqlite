@@ -19,7 +19,7 @@ final class PsrCache implements CacheInterface
     /**
      * @var Cache
      */
-    private $cache;
+    private Cache $cache;
 
     /**
      * PsrCache constructor
@@ -41,12 +41,7 @@ final class PsrCache implements CacheInterface
      */
     public function get($item, $default = NULL)
     {
-        return $this->cache->load(
-            $this->check($item),
-            static function () use ($default) {
-                return $default;
-            }
-        );
+        return $this->cache->load($this->check($item), static fn () => $default);
     }
 
     /**
@@ -109,18 +104,13 @@ final class PsrCache implements CacheInterface
      * @param mixed $items
      * @param mixed $default
      *
-     * @return iterable
+     * @return mixed[]
      *
      * @throws PsrCacheInvalidArgumentException
      */
     public function getMultiple($items, $default = NULL): iterable
     {
-        return $this->cache->bulkLoad(
-            $this->checkMultiple($items),
-            static function () use ($default) {
-                return $default;
-            }
-        );
+        return $this->cache->bulkLoad($this->checkMultiple($items), static fn () => $default);
     }
 
     /**
@@ -203,7 +193,7 @@ final class PsrCache implements CacheInterface
     /**
      * @param mixed $keys
      *
-     * @return array
+     * @return mixed[]
      *
      * @throws PsrCacheInvalidArgumentException
      */

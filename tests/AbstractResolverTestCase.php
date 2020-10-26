@@ -28,12 +28,12 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
     /**
      * @var Application
      */
-    private $application;
+    private Application $application;
 
     /**
      * @var IHttpResponse
      */
-    private $response;
+    private IHttpResponse $response;
 
     /**
      *
@@ -47,9 +47,9 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
     }
 
     /**
-     * @param array  $expected
-     * @param array  $actual
-     * @param string $message
+     * @param mixed[] $expected
+     * @param mixed[] $actual
+     * @param string  $message
      */
     protected function assertResponse(array $expected, array $actual, string $message = ''): void
     {
@@ -57,10 +57,10 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
     }
 
     /**
-     * @param string $query
-     * @param array  $headers
+     * @param string  $query
+     * @param mixed[] $headers
      *
-     * @return array
+     * @return mixed[]
      */
     protected function sendRequest(string $query, array $headers = []): array
     {
@@ -76,9 +76,7 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
             IHttpRequest::POST,
             NULL,
             NULL,
-            static function () use ($query) {
-                return Json::encode(['query' => $query]);
-            }
+            static fn () => Json::encode(['query' => $query])
         );
 
         $this->setProperty($this->application, 'httpRequest', $request);
@@ -118,9 +116,9 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
     }
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
-     * @return array
+     * @return mixed[]
      */
     protected function getResponseData(array $data = []): array
     {
@@ -130,7 +128,7 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
             $content = $this->saveData($data);
         }
 
-        return Json::decode($content ?: $this->getData(FALSE), Json::FORCE_ARRAY);
+        return Json::decode(is_string($content) ? $content : $this->getData(FALSE), Json::FORCE_ARRAY);
     }
 
     /**
@@ -157,7 +155,7 @@ abstract class AbstractResolverTestCase extends AbstractContainerTestCase
     }
 
     /**
-     * @param array $data
+     * @param mixed[] $data
      *
      * @return string
      */
